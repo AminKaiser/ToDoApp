@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.min.css" integrity="sha256-/8xGgcV6Mp9fFa2u2lLYOWYNluCdrHEvBfiwhpkD/Js=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/south-street/theme.min.css" integrity="sha256-j5WK5GB3+w3i2jRf0bV9dkjJ+mm+TiSEG6WgNiD+gWk=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.structure.min.css" integrity="sha256-rxais37anKUnpL5QzSYte+JnIsmkGmLG+ZhKSkZkwVM=" crossorigin="anonymous" />
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  crossorigin="anonymous">
+  </script>
+
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous">
+</script>
+
+<style>
+	body{
+		background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(33,138,47,1) 100%);
+	}
+	input{
+		width: 100%;
+		padding: 10px;
+		margin-bottom: 15px;
+		box-sizing: border-box;
+	}
+	.container{
+		width:50%;
+		margin: 20px auto;
+		padding:20px;
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+	}
+	.item-row{
+		background-color: #218a2f;
+		margin: 10px;
+		padding: 20px;
+		border-radius: 3px;
+		color: white;
+		font-size: 16px;
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+	}
+	.save{
+		background-color:  #218a2f;
+		color: white;
+	}
+
+    .timer{
+	background-color: #dc3545;
+	border-radius: 5px;
+	padding: 5px;
+
+}
+</style>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">SMIS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+        {% if request.user.is_authenticated %}
+
+            <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+
+    {% endif %}
+    </ul>
+    <ul class="navbar-nav">
+        {% if request.user.is_authenticated %}
+        <li><a href="/accounts/logout"><button class="btn btn-danger">{{ user }} | Logout</button></a></li>
+        {% else %}
+        <li><a href="/accounts/login">Login</a></li>
+        {% endif %}
+    </ul>
+  </div>
+</nav>
+
